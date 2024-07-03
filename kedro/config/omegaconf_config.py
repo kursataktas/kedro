@@ -291,15 +291,10 @@ class OmegaConfigLoader(AbstractConfigLoader):
             )
 
         paths = []
-        import glob
         for pattern in patterns:
-            print(f"DEBUG***: {list(glob.glob((f"{str(conf_path)}/{pattern}")))}")
-            for each in glob.glob((f"{str(conf_path)}/{pattern}")):
+            for each in self._fs.glob(Path(f"{str(conf_path)}/{pattern}").as_posix()):
                 if not self._is_hidden(each):
                     paths.append(Path(each))
-            # for each in self._fs.glob(Path(f"{str(conf_path)}/{pattern}").as_posix()):
-            #     if not self._is_hidden(each):
-            #         paths.append(Path(each))
 
         deduplicated_paths = set(paths)
         config_files_filtered = [
