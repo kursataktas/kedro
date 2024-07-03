@@ -293,6 +293,7 @@ class OmegaConfigLoader(AbstractConfigLoader):
         paths = []
         import glob
         for pattern in patterns:
+            print(f"DEBUG***: {list(glob.glob((f"{str(conf_path)}/{pattern}")))}")
             for each in glob.glob((f"{str(conf_path)}/{pattern}")):
                 if not self._is_hidden(each):
                     paths.append(Path(each))
