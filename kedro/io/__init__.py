@@ -12,8 +12,9 @@ from .core import (
     DatasetNotFoundError,
     Version,
 )
+from .core_redesign import AbstractDataCatalog
 from .data_catalog import DataCatalog
-from .data_catalog_redesign import AbstractDataCatalog, KedroDataCatalog
+from .data_catalog_redesign import KedroDataCatalog
 from .lambda_dataset import LambdaDataset
 from .memory_dataset import MemoryDataset
 from .shared_memory_dataset import SharedMemoryDataset
